@@ -1,4 +1,4 @@
-OPT = -ffree-form -std=f2008 -fimplicit-none -Wall -pedantic
+OPT = -ffree-form -std=f2008 -fimplicit-none -Wall -pedantic -cpp
 
 main:
 	gfortran $(OPT) -c gauss.f90

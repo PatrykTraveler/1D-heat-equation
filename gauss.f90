@@ -1,13 +1,17 @@
+#ifndef _PRECISION
+#define _PRECISION 8
+#endif
+
 module gauss
     implicit none
 
 contains
     subroutine do_gauss(A, X, N)
         implicit none
-        integer(kind = 4), intent(in)::N
-        real (kind = 8), allocatable, dimension(:, :), intent(inout) :: A
-        real (kind = 8), allocatable, dimension(:), intent(inout) :: X
-        real(kind = 8) :: c
+        integer(kind = 4), intent(in) :: N
+        real (kind = _PRECISION), allocatable, dimension(:, :), intent(inout) :: A
+        real (kind = _PRECISION), allocatable, dimension(:), intent(inout) :: X
+        real (kind = _PRECISION) :: c
         integer(kind = 4) :: i, j
 
         do i=1, N
