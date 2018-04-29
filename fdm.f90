@@ -25,10 +25,10 @@ contains
             A(i, i+1) = 1/(h**2)
         end do
 
+        A(1,1) = 1
+        A(2,1) = 0
         X(1) = beginc
         X(N) = endc
 
     end subroutine
 end module fdm
-
-

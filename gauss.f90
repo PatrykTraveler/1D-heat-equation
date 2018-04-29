@@ -15,7 +15,7 @@ contains
                 if(i .NE. j) then
                     c = A(i, j)/A(i, i)
                     A(:,j) = A(:,j) - c*A(:, i)
-                    X(j) = X(j) - c*X(j)
+                    X(j) = X(j) - c*X(i)
                     X(i) = X(i)/A(i,i)
                     A(:,i) = A(:,i)/A(i,i)
                 end if
