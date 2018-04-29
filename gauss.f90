@@ -5,8 +5,8 @@ contains
     subroutine do_gauss(A, X, N)
         implicit none
         integer(kind = 4), intent(in)::N
-        real(kind = 8), intent(inout)::A(N, N)
-        real(kind = 8), intent(inout)::X(N)
+        real (kind = 8), allocatable, dimension(:, :), intent(inout) :: A
+        real (kind = 8), allocatable, dimension(:), intent(inout) :: X
         real(kind = 8) :: c
         integer(kind = 4) :: i, j
 

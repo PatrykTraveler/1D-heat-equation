@@ -4,18 +4,16 @@ module fdm
 contains 
     subroutine generate(A, X, N, beginc, endc, h)
         implicit none
-        integer (kind = 4), intent(in) :: N
-        real (kind = 8), intent(in) :: beginc, endc, h
-        real (kind = 8), allocatable, dimension(:, :), intent(out) :: A
-        real (kind = 8), allocatable, dimension(:), intent(out) :: X
+        integer (kind = 4), intent(in) :: N, beginc, endc
+        real (kind = 8), intent(in) :: h
+        real (kind = 8), allocatable, dimension(:, :), intent(inout) :: A
+        real (kind = 8), allocatable, dimension(:), intent(inout) :: X
         integer :: i
 
-        allocate(A(N, N))
-        allocate(X(N))
         A = 0
         X = 0
         
-        do i=1, N
+        do i=2, N
             A(i, i-1) = 1/(h**2)
         end do
 
@@ -23,11 +21,11 @@ contains
             A(i, i) = -2/(h**2)
         end do
 
-        do i=1, N 
+        do i=1, N-1 
             A(i, i+1) = 1/(h**2)
         end do
 
-        X(0) = beginc
+        X(1) = beginc
         X(N) = endc
 
     end subroutine
