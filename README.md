@@ -1,5 +1,5 @@
 # 1D heat equation solver
-Numerical solution to the heat equations using the finite difference method,written in Fortran.
+Numerical solution to the heat equation using the finite difference method, written in Fortran.
 ### Requirements:
 Fairly new version of `gfortran`
 ### Usage:
