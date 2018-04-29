@@ -2,7 +2,7 @@ module gauss
     implicit none
 
 contains
-    subroutine mmatrix_product(A, X, N)
+    subroutine do_gauss(A, X, N)
         implicit none
         integer(kind = 4), intent(in)::N
         real(kind = 8), intent(inout)::A(N, N)
