@@ -2,9 +2,12 @@ module fdm
     implicit none
 
 contains 
-    subroutine generate(N, A, X, begin, end)
+    subroutine generate(A, X, N, beginc, endc, h)
         implicit none
+        integer (kind = 4), intent(in) :: N
+        real (kind = 8), intent(in) :: beginc, endc, h
         real (kind = 8), allocatable, dimension(:, :), intent(out) :: A
+        real (kind = 8), allocatable, dimension(:), intent(out) :: X
         integer :: i
 
         allocate(A(N, N))
@@ -24,7 +27,8 @@ contains
             A(i, i+1) = 1/(h**2)
         end do
 
-        X(N) = 1
+        X(0) = beginc
+        X(N) = endc
 
     end subroutine
 end module fdm
