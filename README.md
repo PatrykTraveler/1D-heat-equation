@@ -13,3 +13,6 @@ In order to run the application, open your terminal in main folder of the projec
 ./main RANGE STEP
 ```
 where RANGE is range of error sampling and STEP is its step. Subsequent error values are redirected to `errors.txt` file.
+
+### Plots:
+Plots have been generated in `jupyter notebook` using Julia language and `Plots` package.
