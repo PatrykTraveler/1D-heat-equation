@@ -8,7 +8,7 @@ program main
     implicit none
 
     logical :: exist
-    integer (kind = 4) :: num_args, arg_i, N, i
+    integer (kind = 4) :: num_args, arg_i, i, STP, RNG
     character(len=12), dimension(:), allocatable :: args
     real (kind = 16) :: errors
     real (kind = _PRECISION), allocatable, dimension(:, :):: A
@@ -23,8 +23,12 @@ program main
         call get_command_argument(arg_i, args(arg_i))
     end do
 
-    if(num_args > 0) then
-        read(args(1), '(i5)') N
+    if(num_args == 2) then
+        read(args(1), '(i5)') RNG
+        read(args(2), '(i5)') STP
+    else
+        RNG = 1000
+        STP = 50
     end if
 
     beginc = 0
@@ -38,7 +42,7 @@ program main
     end if
     
     !redirecting computational errors to file
-    do i = 50,800,50
+    do i = STP,RNG,STP
         allocate(A(i, i))
         allocate(X(i))
         call generate(A, X, i, beginc, endc)
