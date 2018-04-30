@@ -1,5 +1,5 @@
 #ifndef _PRECISION
-#define _PRECISION 8
+#define _PRECISION 4
 #endif
 
 module gauss
@@ -9,8 +9,8 @@ contains
     subroutine do_gauss(A, X, N)
         implicit none
         integer(kind = 4), intent(in) :: N
-        real (kind = _PRECISION), allocatable, dimension(:, :), intent(inout) :: A
-        real (kind = _PRECISION), allocatable, dimension(:), intent(inout) :: X
+        real (kind = _PRECISION), intent(inout) :: A(N,N)
+        real (kind = _PRECISION), intent(inout) :: X(N)
         real (kind = _PRECISION) :: c
         integer(kind = 4) :: i, j
 
